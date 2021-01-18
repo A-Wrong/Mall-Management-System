@@ -1,0 +1,48 @@
+﻿@model Shopping_Mall_Management.Models.ShopOwner
+@Styles.Render("~/Content/Validation.css")
+@Styles.Render("~/Content/Registration.css")
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="Home">
+        <h2 align="center">Owner Login</h2><br /><br />
+        <div id="msg"></div>
+        @using (Html.BeginForm("Login", "Owner", FormMethod.Post))
+        {
+            if (@ViewBag.Message != null)
+            {
+                <div>
+                    <p style="color:red">@ViewBag.Message</p>
+                </div>
+            }
+            <table>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Userid)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Userid)
+                        @Html.ValidationMessageFor(m => m.Userid)
+                    </td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(m => m.Password)</td>
+                    <td>
+                        @Html.PasswordFor(m => m.Password)
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" id="Submit" value="Login" />
+        }
+    </div>
+    @Html.ActionLink("Register", "Register", "Owner")
+</body>
+</html>

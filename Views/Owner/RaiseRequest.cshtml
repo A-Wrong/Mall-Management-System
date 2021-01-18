@@ -1,0 +1,97 @@
+﻿@Styles.Render("~/Content/Registration.css")
+@model System.Collections.ArrayList
+@{
+    ViewBag.Title = "RaiseRequest";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    Shopping_Mall_Management.Models.RentOrLeaseRequest rol = null;
+    rol = (Shopping_Mall_Management.Models.RentOrLeaseRequest)Model[0];
+
+    List<Shopping_Mall_Management.Models.Store> stores = null;
+    stores = (List<Shopping_Mall_Management.Models.Store>)Model[1];
+
+    List<Shopping_Mall_Management.Models.ShopOwner> shopOwners = null;
+    shopOwners = (List<Shopping_Mall_Management.Models.ShopOwner>)Model[2];
+
+    List<Shopping_Mall_Management.Models.BussinessProfile> profiles = null;
+    profiles = (List<Shopping_Mall_Management.Models.BussinessProfile>)Model[3];
+
+    List<Shopping_Mall_Management.Models.RentOrLeaseRequest> rols = new List<Shopping_Mall_Management.Models.RentOrLeaseRequest>();
+    int count = 0;
+
+    var mainList = (from so in shopOwners
+                    join p in profiles
+ on so.Userid equals p.BussinessProfileId
+                    join s in stores on p.ShopName equals s.StoreName
+                    select new
+                    {
+                        StoreNumber = s.Storenumber,
+                        StoreLocation = s.Storelocation,
+                        RequestType = s.Type,
+                        StoreOwnerName = so.FirstName,
+                        ContactNumber = so.ContactNumber,
+                        BusinessCategory = p.BusinessCategory,
+                        Tenure = s.Tenure,
+                        Status = "New"
+
+
+                    }).ToList();
+
+
+}
+<html>
+<body>
+    <div class="Home">
+        <h2>RaiseRequest</h2>
+
+        <table>
+            <tr>
+                <th>StoreNumber</th>
+                <th>StoreLocation</th>
+                <th>RequestType </th>
+                <th>StoreOwnerName</th>
+                <th> ContactNumber</th>
+                <th>BusinessCategory</th>
+                <th>Tenure</th>
+                <th>Status</th>
+                <th></th>
+
+            </tr>
+            @foreach (var item in mainList)
+            {
+                {
+                    rol.StoreNumber = item.StoreNumber;
+                    rol.StoreLocation = item.StoreLocation;
+                    rol.Type = item.RequestType;
+                    rol.StoreOwnerName = item.StoreOwnerName;
+                    rol.ContactNumber = item.ContactNumber;
+                    rol.BusinessCategory = item.BusinessCategory;
+                    rol.Tenure = item.Tenure;
+                    rol.Status = item.Status;
+                    rols.Add(rol);
+                }
+                <tr>
+                    <th>@rol.StoreNumber</th>
+                    <th>@item.StoreLocation</th>
+                    <th>@item.RequestType </th>
+                    <th>@item.StoreOwnerName</th>
+                    <th>@item.ContactNumber</th>
+                    <th>@item.BusinessCategory</th>
+                    <th>@item.Tenure</th>
+                    <th>@item.Status</th>
+                    <th>@Html.ActionLink("Raise Request", "RequestRaised/" + count, "Owner")</th>
+
+
+                </tr>
+
+                {
+                    count += 1;
+
+                }
+            }
+        </table>
+    </div>
+</body>
+</html>
+@{
+    Session.Add("ROLS", rols);
+}

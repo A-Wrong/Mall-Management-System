@@ -1,0 +1,90 @@
+﻿@model Shopping_Mall_Management.Models.ShopOwner
+@Styles.Render("~/Content/Validation.css")
+@Styles.Render("~/Content/Registration.css")
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+</head>
+<body>
+    <div class="Home">
+        <h2>Owner Registration</h2><br /><br />
+        @using (Html.BeginForm("Register", "Owner", FormMethod.Post))
+        {
+    <table>
+        <tr>
+
+            <td>@Html.LabelFor(m => m.FirstName)</td>
+            <td>@Html.TextBoxFor(m => m.FirstName)
+            @Html.ValidationMessageFor(m => m.FirstName)</td>
+        </tr>
+        <tr>
+            <td> @Html.LabelFor(m => m.LastName)</td>
+            <td>@Html.TextBoxFor(m => m.LastName)
+            @Html.ValidationMessageFor(m => m.LastName)</td>
+        </tr> <tr>
+    <td>@Html.LabelFor(m => m.DateOfBirth)</td>
+    <td>
+        @Html.EditorFor(m => m.DateOfBirth)
+        @Html.ValidationMessageFor(m => m.DateOfBirth)
+    </td>
+</tr>
+              <tr>
+                  <td>@Html.LabelFor(m => m.Gender)</td>
+                  <td>Male: @Html.RadioButtonFor(m => m.Gender, "Male")
+                                                    Female: @Html.RadioButtonFor(m => m.Gender, "Female")
+
+@Html.ValidationMessageFor(m => m.Gender)</td>
+              </tr>
+              <tr>
+                  <td>@Html.LabelFor(m => m.ContactNumber)</td>
+                  <td>@Html.TextBoxFor(m => m.ContactNumber)
+                  @Html.ValidationMessageFor(m => m.ContactNumber)</td>
+              </tr>
+              <tr>
+                  <td>@Html.LabelFor(m => m.Email)</td>
+                  <td>
+                      @Html.TextBoxFor(m => m.Email)
+                      @Html.ValidationMessageFor(m => m.Email)
+                  </td>
+              </tr><tr>
+    <td>
+        @Html.LabelFor(m => m.Category)
+    </td>
+    <td>
+        @Html.DropDownList("Category", new List<SelectListItem>
+{
+   new SelectListItem{ Text="Clothing", Value = "Clothing" },
+   new SelectListItem{ Text="Footwear", Value = "Footwear" },
+   new SelectListItem{ Text="Gaming", Value = "Gaming" },
+   new SelectListItem{ Text="Food Court", Value = "Food Court" },
+   new SelectListItem{ Text="Electronics & Appliances", Value = "Electronics & Appliances" },
+
+})
+        @Html.ValidationMessageFor(m => m.Category)
+    </td>
+</tr>
+                   <tr>
+                       <td>@Html.LabelFor(m => m.Userid)</td>
+                       <td>
+                           @Html.TextBoxFor(m => m.Userid)
+                           @Html.ValidationMessageFor(m => m.Userid)
+                       </td>
+                   </tr><tr>
+    <td>@Html.LabelFor(m => m.Password)</td>
+    <td>@Html.PasswordFor(m => m.Password)
+    @Html.ValidationMessageFor(m => m.Password)</td>
+</tr>
+    </table>
+            <input type="submit" id="Submit" value="Register" />
+        }
+    </div>
+    @Html.ActionLink("<<-Back To Login", "Login", "Owner")
+</body>
+</html>

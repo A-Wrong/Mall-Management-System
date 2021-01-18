@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Shopping_Mall_Management.Models.Store>
+@Styles.Render("~/Content/Registration.css")
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewShopDetails</title>
+</head>
+<body>
+    <div class="Home">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Storenumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OccupencyStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Storelocation)
+                </th>
+
+
+
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td title="click on Store number">
+                        @Html.ActionLink(item.Storenumber, "Details/" + item.Storenumber, "Owner")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OccupencyStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Storelocation)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿@model Shopping_Mall_Management.Models.ShopOwner
+@Styles.Render("~/Content/Registration.css")
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>OwnerHome</title>
+</head>
+<body>
+    <div id="Home">
+        <h1>
+        Welcome @Session["UserId"].ToString() </h1>
+    </div>
+    <div>
+        <div>
+            <button id="Submit">@Html.ActionLink("View Shop Details", "ViewShopDetails", "Owner") </ button >
+        </div>
+        <div>
+            <button id="Submit">@Html.ActionLink("Edit Shop Owner Profile", "EditShopOwnerProfile", "Owner")</button>
+        </div>
+        <div>
+            <button id="Submit">@Html.ActionLink("Raise Request", "RaiseRequest", "Owner") </ button >
+        </div>
+        <div>
+            <button id="Submit">@Html.ActionLink("View Request", "RequestStatus", "Owner") </ button >
+        </div>
+    </div>
+
+</body>
+</html>
