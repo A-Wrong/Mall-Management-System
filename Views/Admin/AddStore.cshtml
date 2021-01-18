@@ -1,0 +1,24 @@
+﻿@model Shopping_Mall_Management.Models.Store
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddStore</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("AddStore", "Admin", FormMethod.Post))
+        {
+            <div>
+                @Html.LabelFor(m => m.Storenumber)
+                @Html.TextBoxFor(m => m.Storenumber)
+            </div>
+        }
+    </div>
+</body>
+</html>

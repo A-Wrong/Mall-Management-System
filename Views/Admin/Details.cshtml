@@ -1,0 +1,100 @@
+﻿@model Shopping_Mall_Management.Models.Store
+@Styles.Render("~/Content/Registration.css")
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div class="Home">
+        <h3>Store Details</h3>
+        <hr />
+        <table class="dl-horizontal">
+            <tr>
+                <td> @Html.DisplayNameFor(model => model.Storesize)</td>
+                <td>@Html.DisplayFor(model => model.Storesize)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Storelocation)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.Storelocation)
+                </td>
+                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.StoreArea)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.StoreArea)
+                </td>
+                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.OccupencyStatus)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.OccupencyStatus)
+                </td>
+                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Type)
+                </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Type)
+            </td>
+            </tr>
+            <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Amount)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Amount)
+            </td>
+            </tr>
+            <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.StoreName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.StoreName)
+            </td>
+            </tr>
+            <tr>
+                <td>
+                @Html.DisplayNameFor(model => model.BusinessCategory)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.BusinessCategory)
+            </td>
+            </tr>
+            <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Tenure)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Tenure)
+            </td>
+            </tr>
+        </table>
+        <button>@Html.ActionLink("<<-Back to List", "UpdateStore", "Admin")</button>
+    </div>
+
+</body>
+</html>

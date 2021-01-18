@@ -1,0 +1,83 @@
+﻿@model Shopping_Mall_Management.Models.BussinessProfile
+@Styles.Render("~/Content/Registration.css")
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<h2>Profile</h2>
+
+<div>
+    <h4>BussinessProfile</h4>
+    <hr />
+    <dl class="Home">
+        <dt>
+            @Html.DisplayNameFor(model => model.ShopOwner.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShopOwner.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShopName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShopName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalEmployees)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalEmployees)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Workinghours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Workinghours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Holiday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Holiday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LicenseNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LicenseNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LicenseExpiryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LicenseExpiryDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+   
+    @Html.ActionLink("Back to List", "RequestApproval")
+</p>

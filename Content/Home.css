@@ -1,0 +1,15 @@
+﻿body {
+    background-image: url('pics/xyz.jpg');
+}
+.Home {
+    
+    align-items: center;
+}
+.button {
+    background-color: lawngreen;
+    padding: 10px;
+    height: 50px;
+    width: 150px;
+    margin: 30px;
+    border-radius: 45px;
+}

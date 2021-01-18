@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Shopping_Mall_Management.Models.RentOrLeaseRequest>
+@Styles.Render("~/Content/Registration.css")
+@{
+    ViewBag.Title = "RequestApproval";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+<h2>RequestApproval</h2>
+
+<div class="Home">
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.RequestId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StoreNumber)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.StoreOwnerName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessCategory)
+            </th>
+
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoreNumber)
+                </td>
+                <td>
+                    @Html.ActionLink(item.StoreOwnerName, "Profile/" + item.StoreOwnerName, "Admin")
+                </td>
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.BusinessCategory)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Approve", "Approved", new { id = item.RequestId }) |
+                    @Html.ActionLink("Reject", "Rejected", new { id = item.RequestId }) 
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

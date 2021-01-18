@@ -1,0 +1,31 @@
+﻿@model Shopping_Mall_Management.Models.Admin
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Login", "Shop_Owner", FormMethod.Post))
+        {
+            <div>
+            @Html.LabelFor(m => m.userid)
+            @Html.TextBoxFor(m => m.userid)
+            @Html.ValidationMessageFor(m => m.userid)
+            </div>
+            <div>
+            @Html.LabelFor(m => m.password)
+            @Html.TextBoxFor(m => m.password)
+            @Html.ValidationMessageFor(m => m.password)
+            </div>
+            <input type="submit" id="Submit" value="Login" />
+        }
+    </div>
+</body>
+</html>

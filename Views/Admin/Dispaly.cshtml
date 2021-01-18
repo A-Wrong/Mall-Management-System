@@ -1,0 +1,19 @@
+﻿@Styles.Render("~/Content/Registration.css")
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dispaly</title>
+</head>
+<body>
+    <div>
+        <h2 align="center">@ViewBag.Message</h2>
+        <button> @Html.ActionLink("Ok", "AdminHome", "Admin")</button>
+    </div>
+</body>
+</html>

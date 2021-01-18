@@ -1,0 +1,15 @@
+﻿
+.field-validation-error {
+    color: red;
+    font-weight: bold;
+}
+
+.input-validation-error {
+    border-color: red;
+
+}
+#message
+{
+    color:red;
+}
+
